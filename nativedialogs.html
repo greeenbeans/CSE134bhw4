@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <title>Native Dialogs</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script type="text/javascript" src="dist/purify.min.js"></script>
+  </head>
+  <body>
+
+    <button type="button" id="alert-button">Alert</button>
+    <button type="button" id="confirm-button">Confirm</button>
+    <button type="button" id="prompt-button">Prompt</button>
+    <button type="button" id="safer-prompt-button">Safer Prompt</button>
+
+    <output id="output-tag">words</output>
+
+    <script type="text/javascript">
+        const alertButton = document.getElementById("alert-button");
+        const confirmButton = document.getElementById("confirm-button");
+        const promptButton = document.getElementById("prompt-button");
+        const safeButton = document.getElementById("safer-prompt-button");
+
+        alertButton.addEventListener("click", () => {alert("alert");});
+        confirmButton.addEventListener("click", updateListener);
+        promptButton.addEventListener("click", promptListener);
+        safeButton.addEventListener("click", safePromptListener);
+
+        var message = "";
+
+        function promptListener(){
+            message = prompt ("Enter your message", "");
+        }
+
+        function safePromptListener(){
+            message = prompt ("Enter your message", "");
+            let clean = DOMPurify.sanitize(message);
+            message = clean;
+        }
+
+        function updateListener(){
+            if (message != "" && message != null) {
+                document.getElementById("output-tag").innerHTML = "The value returned by the confirm method is : " + message;
+            }
+            else{
+                document.getElementById("output-tag").innerHTML = "User didn’t enter anything";
+            }
+        }
+
+
+
+      </script>
+
+
+  </body>
+</html>
