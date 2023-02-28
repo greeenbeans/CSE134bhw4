@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <title>Rahil Shah's Interests</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <h1>My Interests</h1>
+        <hr />
+        <article>
+          <h3>Music!</h3>
+          <p>I love music and going to concerts. Here are some songs I like</p>
+          <aside>
+            <iframe
+              style="border-radius: 12px"
+              src="https://open.spotify.com/embed/track/6AoG52kxfptY0QBQnjuQOe?utm_source=generator"
+              width="352"
+              height="352"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </aside>
+          <audio controls>
+            <source src="file_example_MP3_700KB.mp3" type="audio/mpeg" />
+            Your browser does not support the audio tag.
+          </audio>
+        </article>
+
+        <article>
+          <h3>Photography</h3>
+          <details>
+            <summary>My Pictures</summary>
+            <p>
+              I started taking pictures a long time ago, here are some of my
+              favs
+            </p>
+            <div class="pics">
+              <figure>
+                <img
+                  src="IMG_0233.jpg"
+                  alt="picture of sky at night"
+                  width="300"
+                  height="360"
+                />
+                <figcaption><em>Sky Picture</em></figcaption>
+              </figure>
+              <figure>
+                <picture>
+                  <img
+                    src="IMG_0306.jpg"
+                    alt="picture of sky at night 2"
+                    width="300"
+                    height="360"
+                  />
+                </picture>
+
+                <figcaption><em>Sky Picture 2</em></figcaption>
+              </figure>
+            </div>
+          </details>
+        </article>
+
+        <article>
+          <h3>TV and Movies</h3>
+          <p>I love watching interesting and thought provoking movies</p>
+          <h4>my top 3 are</h4>
+          <ol>
+            <li>Toy Story 1</li>
+            <li>Toy Story 3</li>
+            <li>Toy Story 2</li>
+          </ol>
+          <p>which of these Three are your favorite?</p>
+          <form>
+            <label for="movie">Choose your favorite from the list:</label>
+            <input list="movies" name="movie" id="movie" />
+            <datalist id="movies">
+              <option value="Toy Story 1"></option>
+              <option value="Toy Story 3"></option>
+              <option value="Toy Story 2"></option>
+            </datalist>
+
+            <input type="submit" />
+          </form>
+
+          <video width="320" height="240" controls>
+            <source
+              src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

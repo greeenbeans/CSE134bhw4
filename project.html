@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <style>
+    body {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+    }
+  </style>
+  <meta charset="utf-8">
+  <title>Rahil Shah's Blog</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <h1> Projects!</h1>
+  <p> <i><strong> look at this cool box i made!</strong></i><br>
+    The code I used to make it is here: <br><code>
+    var canvas = document.getElementById("myCanvas"); <br>
+    var ctx = canvas.getContext("2d");<br>
+    ctx.fillStyle = "#FF00F0";<br>
+    ctx.fillRect(0, 0, 400, 400);
+</code></p>
+  <canvas id="myCanvas">
+
+    Your browser does not support the canvas tag.
+  </canvas>
+
+  <script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#FF00F0";
+    ctx.fillRect(0, 0, 400, 400);
+  </script>
+
+  <p>Here's me trying the same thing with the svg tag!</p>
+  
+  <svg width="300" height="150">
+    <rect width="400" height="400" style="fill:rgb(255,0,240);"/>
+  </svg>
+
+  <template>
+    <p>github embed tbd</p>
+  </template>
+
+</body>
+
+</html>

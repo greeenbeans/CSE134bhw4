@@ -1,0 +1,132 @@
+body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: lightblue;
+    width: 50%;
+    height: 50%;
+    transform: translate(50%, 0%);
+}
+nav a{
+    font-family :Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    text-decoration: none;
+}
+label {
+    display: block;
+    font-weight: 400;
+    margin: 0 0 1em 0;
+}
+.item {
+    padding: 3em 3em 1em 3em;
+    background-color: #8080ff;
+    border: 2px solid black;
+
+    box-sizing: border-box;
+
+    width: 100%;
+
+    text-align: center;
+    border-radius: 12px;
+    margin: 1rem 0;
+    margin-right: 1rem;
+}
+
+.item header {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* height: 20rem;? */
+}
+
+.item header img {
+    /* transition: transform 0.2s ease-in-out all; */
+    background-repeat: no-repeat;
+    width: 50%;
+    height: min-content;
+    position: relative;
+    left:25%;
+    color: white;
+    z-index: 9;
+    display: block;
+}
+
+.item header h3 {
+    font-size: 1.4vw;
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.item img:hover{
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out all;
+}
+
+.item h3 a:hover {
+    color: #FF4440 !important;
+}
+.item h3 a {
+    background-color: black;
+    text-decoration: none;
+    color: white;
+}
+
+.item p{
+    color: white;
+}
+@media screen and (width <= 768px) {
+    main{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .pics {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+.pics {
+    display :flex;
+    flex-direction: row;
+}
+h1 {
+    font-family: 'Dancing Script', cursive, sans-serif;
+
+    font-size : 4em;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 0 1em 0;
+    text-transform: uppercase;
+    letter-spacing: 0.375rem;
+}
+#about a{
+    font-size : 1em;
+    color:black;
+    margin: 1vh;
+    text-decoration: none;
+
+}
+main{
+    margin-top: 20px;
+    display :flex;
+    flex-direction: row;
+}
+
+#footer{
+    text-align: center;
+}
+
+
+th, td {
+    border: 1px solid;
+  }
+table {
+    border: 1px solid;
+    width: 80%;
+    border-collapse: collapse;
+  }
+  caption{
+    margin: 5%;
+    font-size: 3rem;
+  }
