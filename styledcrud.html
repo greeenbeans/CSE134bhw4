@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script type="module" src="blog.js"></script>
+</head>
+
+<body>
+    <h1>Blog Posts</h1>
+    <ul id="blogPosts">
+        <li id="listElement0"></li>
+        <li id="listElement1"></li>
+        <li id="listElement2"></li>
+    </ul>
+
+    <dialog id="addBlog">
+        <form method="dialog">
+            <input type="text" id="post-date" name="post-date">
+            <input type="text" id="post-title" name="post-title">
+            <textarea id="post-summary"></textarea>
+
+            <button value="cancel">Cancel</button>
+            <button id="confirmBtn" value="default">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="editBlog">
+        <form method="dialog">
+            <input type="text" id="post-date-edit" name="post-date-edit">
+            <input type="text" id="post-title-edit" name="post-title-edit">
+            <textarea id="post-summary-edit"></textarea>
+
+            <button value="cancel-edit">Cancel</button>
+            <button id="confirmBtn-edit" value="default">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+
+    <p>
+        <button id="showDialog">Add Blog</button>
+    </p>
+    <output id="output"></output>
+
+    <script type="module">
+        import { addthing, updateThing, next } from "./blog.js";
+        var counter = 3;
+
+        window.localStorage.setItem('0', `{ "d" : "10/16/2021", "t" :"how to mow a lawn", "s": "In this installment of the how to series, we will teach you the ins and outs of lawn mowing"}`);
+        window.localStorage.setItem('1', `{ "d" : "10/23/2021", "t" :"how to climb a boulder", "s":"In this installment of the how to series, we will teach you how to climb a boulder"}`);
+        window.localStorage.setItem('2', `{ "d" : "12/8/2021", "t" :"Why Lebron James is secretly 75 years old", "s":"This week in conspiracy theories, we're going to explore the theory that lebron james secretly roaming the earth for 75 years"}`);
+
+        //show dialog when clicking the addbutton
+        const showButton = document.getElementById('showDialog');
+        const addBlog = document.getElementById('addBlog');
+
+        const date = addBlog.querySelector("#post-date");
+        const title = addBlog.querySelector("#post-title");
+        const summary = document.getElementById("post-summary");
+
+        const updateDate = editBlog.querySelector("#post-date-edit");
+        const updateTitle = editBlog.querySelector("#post-title-edit");
+        const updateSummary = document.getElementById("post-summary-edit");
+
+
+        addthing(date, title, summary, 0);
+        addthing(date, title, summary, 1);
+        addthing(date, title, summary, 2);
+
+
+        showButton.addEventListener('click', () => {
+            addBlog.showModal();
+        });
+
+        //fields of dialog button
+
+
+        const confirmBtn = addBlog.querySelector('#confirmBtn');
+
+        confirmBtn.addEventListener("click", () => {
+            addthing(date, title, summary, counter);
+            counter = counter + 1;
+
+        });
+
+        const confirmBtnEdit = editBlog.querySelector('#confirmBtn-edit');
+
+        confirmBtnEdit.addEventListener("click", () => {
+            updateThing(updateDate, updateTitle, updateSummary, next);
+        });
+  
+        
+
+    </script>
+
+</body>
+
+</html>

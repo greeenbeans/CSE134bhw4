@@ -1,57 +1,68 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <link rel="stylesheet" href="style.css" />
-    <meta charset="utf-8" />
-    <title>Native Dialogs</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <script type="text/javascript" src="dist/purify.min.js"></script>
-  </head>
-  <body>
 
-    <button type="button" id="alert-button">Alert</button>
-    <button type="button" id="confirm-button">Confirm</button>
-    <button type="button" id="prompt-button">Prompt</button>
-    <button type="button" id="safer-prompt-button">Safer Prompt</button>
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <title>Native Dialogs</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <script src="purify.min.js"></script>
+  <script type="module" src="customdialog.js"></script>
+</head>
 
-    <output id="output-tag">words</output>
+<body>
+  <h1>Part 1</h1>
+  <hr />
+  <button type="button" id="alert-button">Alert</button>
+  <button type="button" id="confirm-button">Confirm</button>
+  <button type="button" id="prompt-button">Prompt</button>
+  <button type="button" id="safer-prompt-button">Safer Prompt</button>
 
-    <script type="text/javascript">
-        const alertButton = document.getElementById("alert-button");
-        const confirmButton = document.getElementById("confirm-button");
-        const promptButton = document.getElementById("prompt-button");
-        const safeButton = document.getElementById("safer-prompt-button");
+  <output id="output-tag">output</output>
 
-        alertButton.addEventListener("click", () => {alert("alert");});
-        confirmButton.addEventListener("click", updateListener);
-        promptButton.addEventListener("click", promptListener);
-        safeButton.addEventListener("click", safePromptListener);
+  <!-- Script for part 1 -->
+  <script>
+    const alertButton = document.getElementById("alert-button");
+    const confirmButton = document.getElementById("confirm-button");
+    const promptButton = document.getElementById("prompt-button");
+    const safeButton = document.getElementById("safer-prompt-button");
 
-        var message = "";
+    alertButton.addEventListener("click", () => { window.alert("alert"); });
+    confirmButton.addEventListener("click", updateListener);
+    promptButton.addEventListener("click", promptListener);
+    safeButton.addEventListener("click", safePromptListener);
 
-        function promptListener(){
-            message = prompt ("Enter your message", "");
-        }
+    function promptListener() {
+      var message = window.prompt("Enter your message", "");
+      if (message != "" && message != null) {
+        document.getElementById("output-tag").innerHTML = `The user entered : ${message}`;
+      }
+      else {
+        document.getElementById("output-tag").innerHTML = `User didn’t enter anything`;
+      }
 
-        function safePromptListener(){
-            message = prompt ("Enter your message", "");
-            let clean = DOMPurify.sanitize(message);
-            message = clean;
-        }
+    }
 
-        function updateListener(){
-            if (message != "" && message != null) {
-                document.getElementById("output-tag").innerHTML = "The value returned by the confirm method is : " + message;
-            }
-            else{
-                document.getElementById("output-tag").innerHTML = "User didn’t enter anything";
-            }
-        }
+    function safePromptListener() {
+      var message = window.prompt("Enter your message", "");
+      if (message != "" && message != null) {
+        document.getElementById("output-tag").innerHTML = DOMPurify.sanitize`The user entered :  ${message}`;
+      }
+      else {
+        document.getElementById("output-tag").innerHTML = `User didn’t enter anything`;
+      }
+      console.log(DOMPurify.sanitize(message));
 
+    }
 
+    function updateListener() {
+      var response = window.confirm()
+      document.getElementById("output-tag").innerHTML = `The value returned by the confirm method is : ${response}`;
 
-      </script>
+    }
+  </script>
 
+ 
+</body>
 
-  </body>
 </html>

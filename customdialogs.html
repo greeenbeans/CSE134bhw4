@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <title>Native Dialogs</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <script src="purify.min.js"></script>
+  <script type="module" src="customdialog.js"></script>
+</head>
+
+<body>
+
+    <h1>Part 2</h1>
+    <hr />
+    
+    <button type="button" id="alert-button-pt2">Alert</button>
+    <button type="button" id="confirm-button-pt2">Confirm</button>
+    <button type="button" id="prompt-button-pt2">Prompt</button>
+    <button type="button" id="safer-prompt-button-pt2">Safer Prompt</button>
+    
+    <dialog id="part2DialogAlert">
+      <form method="dialog">
+        <p id="alert-message"></p>
+        <button>ok</button>
+      </form>
+    </dialog>
+    
+    <dialog id="part2DialogConfirm">
+      <form method="dialog">
+        <button id="cancelButton">Cancel</button>
+        <button id="confirmButton">Confirm</button>
+      </form>
+    </dialog>
+    <dialog id="part2DialogPrompt">
+      <form method="dialog">
+        <input type="text">
+        <button class="button">confirm</button>
+        <button class="cancel">cancel</button>
+    </form>
+    </dialog>
+    <dialog id="part2DialogSafePrompt">
+      <form method="dialog">
+        <input type="text">
+        <button class="button">confirm</button>
+        <button class="cancel">cancel</button>
+      </form>
+    </dialog>
+    
+    <output id="output-tag-pt2">output2</output>
+    
+    <script type="module">
+      import { makeDialogBox, changeOutput, createAlert, createConfirm } from "./customdialog.js";
+    
+      const alertButton2 = document.getElementById("alert-button-pt2");
+      const confirmButton2 = document.getElementById("confirm-button-pt2");
+      const promptButton2 = document.getElementById("prompt-button-pt2");
+      const safeButton2 = document.getElementById("safer-prompt-button-pt2");
+      const outputBox = document.querySelector('#output-tag-pt2');
+    
+      const confirmBtn = document.getElementById("confirmBtn");
+      const cancelBtn = document.querySelector('cancelBtn');
+    
+      makeDialogBox(alertButton2, part2DialogAlert);
+      createAlert(part2DialogAlert,"This is an alert");
+    
+      makeDialogBox(confirmButton2, part2DialogConfirm);
+      createConfirm(part2DialogConfirm, outputBox);
+    
+      makeDialogBox(promptButton2, part2DialogPrompt);
+    
+      changeOutput(part2DialogPrompt, outputBox, "prompt");
+    
+      makeDialogBox(safeButton2, part2DialogSafePrompt);
+      changeOutput(part2DialogSafePrompt, outputBox, "safe");
+    </script>
+    
+     
+</body>
+
+</html>
+

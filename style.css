@@ -130,3 +130,9 @@ table {
     margin: 5%;
     font-size: 3rem;
   }
+
+  dialog {
+    position: relative;
+    margin-top: 20px;
+
+  }
