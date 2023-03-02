@@ -21,11 +21,8 @@
 </head>
 
 <body>
-    <h1>Blog Posts</h1>
+
     <ul id="blogPosts">
-        <li id="listElement0"></li>
-        <li id="listElement1"></li>
-        <li id="listElement2"></li>
     </ul>
 
     <dialog id="addBlog">
@@ -59,11 +56,19 @@
 
     <script type="module">
         import { addthing, updateThing, next } from "./blog.js";
-        var counter = 3;
-
-        window.localStorage.setItem('0', `{ "d" : "10/16/2021", "t" :"how to mow a lawn", "s": "In this installment of the how to series, we will teach you the ins and outs of lawn mowing"}`);
-        window.localStorage.setItem('1', `{ "d" : "10/23/2021", "t" :"how to climb a boulder", "s":"In this installment of the how to series, we will teach you how to climb a boulder"}`);
-        window.localStorage.setItem('2', `{ "d" : "12/8/2021", "t" :"Why Lebron James is secretly 75 years old", "s":"This week in conspiracy theories, we're going to explore the theory that lebron james secretly roaming the earth for 75 years"}`);
+        let counter = 3;
+        if (window.localStorage.getItem('0') === null) {
+            window.localStorage.setItem('0', `{ "d" : "10/16/2021", "t" :"how to mow a lawn", "s": "In this installment of the how to series, we will teach you the ins and outs of lawn mowing"}`);
+        }
+        if (window.localStorage.getItem('1') === null) {
+            window.localStorage.setItem('1', `{ "d" : "10/23/2021", "t" :"how to climb a boulder", "s":"In this installment of the how to series, we will teach you how to climb a boulder"}`);
+        }
+        if (window.localStorage.getItem('2') === null) {
+            window.localStorage.setItem('2', `{ "d" : "12/8/2021", "t" :"Why Lebron James is secretly 75 years old", "s":"This week in conspiracy theories, we're going to explore the theory that lebron james secretly roaming the earth for 75 years"}`);
+        }
+        while (window.localStorage.getItem(counter) != null) {
+            counter = counter + 1;
+        }
 
         //show dialog when clicking the addbutton
         const showButton = document.getElementById('showDialog');
@@ -77,18 +82,18 @@
         const updateTitle = editBlog.querySelector("#post-title-edit");
         const updateSummary = document.getElementById("post-summary-edit");
 
-
-        addthing(date, title, summary, 0);
-        addthing(date, title, summary, 1);
-        addthing(date, title, summary, 2);
-
+        let j = 0;
+        while (j < counter) {
+            addthing(date, title, summary, j);
+            j = j + 1;
+        }
+        //set time out (0) ???? for blocking
 
         showButton.addEventListener('click', () => {
             addBlog.showModal();
         });
 
         //fields of dialog button
-
 
         const confirmBtn = addBlog.querySelector('#confirmBtn');
 
@@ -103,8 +108,6 @@
         confirmBtnEdit.addEventListener("click", () => {
             updateThing(updateDate, updateTitle, updateSummary, next);
         });
-
-
 
     </script>
 
