@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-S2F7RRCL1D"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "G-S2F7RRCL1D");
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2F7RRCL1D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-S2F7RRCL1D');
     </script>
     <link rel="stylesheet" href="style.css" />
     <meta charset="utf-8" />
@@ -21,9 +17,9 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <script src="purify.min.js"></script>
     <script type="module" src="customdialog.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <h1>Part 2</h1>
     <hr />
 
@@ -33,64 +29,65 @@
     <button type="button" id="safer-prompt-button-pt2">Safer Prompt</button>
 
     <dialog id="part2DialogAlert">
-      <form method="dialog">
-        <p id="alert-message"></p>
-        <button>ok</button>
-      </form>
+        <form method="dialog">
+            <p id="alert-message"></p>
+            <button>ok</button>
+        </form>
     </dialog>
 
     <dialog id="part2DialogConfirm">
-      <form method="dialog">
-        <button id="cancelButton">Cancel</button>
-        <button id="confirmButton">Confirm</button>
-      </form>
+        <form method="dialog">
+            <button id="cancelButton">Cancel</button>
+            <button id="confirmButton">Confirm</button>
+        </form>
     </dialog>
     <dialog id="part2DialogPrompt">
-      <form method="dialog">
-        <input type="text" />
-        <button class="button">confirm</button>
-        <button class="cancel">cancel</button>
-      </form>
+        <form method="dialog">
+            <input type="text" />
+            <button class="button">confirm</button>
+            <button class="cancel">cancel</button>
+        </form>
     </dialog>
     <dialog id="part2DialogSafePrompt">
-      <form method="dialog">
-        <input type="text" />
-        <button class="button">confirm</button>
-        <button class="cancel">cancel</button>
-      </form>
+        <form method="dialog">
+            <input type="text" />
+            <button class="button">confirm</button>
+            <button class="cancel">cancel</button>
+        </form>
     </dialog>
 
     <output id="output-tag-pt2">output2</output>
 
     <script type="module">
-      import {
-        makeDialogBox,
-        changeOutput,
-        createAlert,
-        createConfirm,
-      } from "./customdialog.js";
+        import {
+            makeDialogBox,
+            changeOutput,
+            createAlert,
+            createConfirm,
+        } from "./customdialog.js";
 
-      const alertButton2 = document.getElementById("alert-button-pt2");
-      const confirmButton2 = document.getElementById("confirm-button-pt2");
-      const promptButton2 = document.getElementById("prompt-button-pt2");
-      const safeButton2 = document.getElementById("safer-prompt-button-pt2");
-      const outputBox = document.querySelector("#output-tag-pt2");
+        const alertButton2 = document.getElementById("alert-button-pt2");
+        const confirmButton2 = document.getElementById("confirm-button-pt2");
+        const promptButton2 = document.getElementById("prompt-button-pt2");
+        const safeButton2 = document.getElementById("safer-prompt-button-pt2");
+        const outputBox = document.querySelector("#output-tag-pt2");
 
-      const confirmBtn = document.getElementById("confirmBtn");
-      const cancelBtn = document.querySelector("cancelBtn");
+        const confirmBtn = document.getElementById("confirmBtn");
+        const cancelBtn = document.querySelector("cancelBtn");
 
-      makeDialogBox(alertButton2, part2DialogAlert);
-      createAlert(part2DialogAlert, "This is an alert");
+        makeDialogBox(alertButton2, part2DialogAlert);
+        createAlert(part2DialogAlert, "This is an alert");
 
-      makeDialogBox(confirmButton2, part2DialogConfirm);
-      createConfirm(part2DialogConfirm, outputBox);
+        makeDialogBox(confirmButton2, part2DialogConfirm);
+        createConfirm(part2DialogConfirm, outputBox);
 
-      makeDialogBox(promptButton2, part2DialogPrompt);
+        makeDialogBox(promptButton2, part2DialogPrompt);
 
-      changeOutput(part2DialogPrompt, outputBox, "prompt");
+        changeOutput(part2DialogPrompt, outputBox, "prompt");
 
-      makeDialogBox(safeButton2, part2DialogSafePrompt);
-      changeOutput(part2DialogSafePrompt, outputBox, "safe");
+        makeDialogBox(safeButton2, part2DialogSafePrompt);
+        changeOutput(part2DialogSafePrompt, outputBox, "safe");
     </script>
-  </body>
+</body>
+
 </html>

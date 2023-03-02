@@ -1,79 +1,67 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-S2F7RRCL1D"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "G-S2F7RRCL1D");
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <meta charset="utf-8" />
-    <title>Rahil Shah's Portfolio</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  </head>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2F7RRCL1D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  <body>
-    <h1>Rahil Shah</h1>
+    gtag('config', 'G-S2F7RRCL1D');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <title>Rahil Shah's Portfolio</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
 
+<body>
+  <h1>Rahil Shah</h1>
+
+  <nav>
+    <a href="project.html"><b>projects</b></a>
+    <a href="styledcrud.html"><b>blog</b></a>
+    <a href="interest.html"><b>interests</b></a>
+  </nav>
+
+  <main>
+    <article class="item">
+      <header>
+        <a href="interest.html">
+          <img src="SDCTF.png" alt="SDCTF Logo" />
+        </a>
+        <h3><a href="interest.html"> Hobbies! </a></h3>
+      </header>
+      <p>Some of my other random hobbies and interests</p>
+    </article>
+
+    <article class="item">
+      <header>
+        <a href="styledcrud.html">
+          <img src="CTF.png" alt="red pawn icon" />
+        </a>
+        <h3><a href="styledcrud.html"> Blog </a></h3>
+      </header>
+      <p>
+        A more detailed look into some of the interesting challenges I solved
+        in CTF with my team, redpwn, or on other projects.
+      </p>
+    </article>
+  </main>
+
+  <hr />
+  <footer id="footer">
     <nav>
-      <a href="project.html"><b>projects</b></a>
-      <a href="styledcrud.html"><b>blog</b></a>
-      <a href="interest.html"><b>interests</b></a>
+      <a href="https://github.com/greeenbeans"><span class="label">Github</span></a>
+      <a href="https://www.linkedin.com/in/rahil-shah-383b7715a/"><span class="label">LinkedIn</span></a>
+      <a href="mailto:rahilshah042@gmail.com"><span class="label">Email</span></a>
     </nav>
+  </footer>
+</body>
 
-    <main>
-      <article class="item">
-        <header>
-          <a href="interest.html">
-            <img src="SDCTF.png" alt="SDCTF Logo" />
-          </a>
-          <h3><a href="interest.html"> Hobbies! </a></h3>
-        </header>
-        <p>Some of my other random hobbies and interests</p>
-      </article>
-
-      <article class="item">
-        <header>
-          <a href="styledcrud.html">
-            <img src="CTF.png" alt="red pawn icon" />
-          </a>
-          <h3><a href="styledcrud.html"> Blog </a></h3>
-        </header>
-        <p>
-          A more detailed look into some of the interesting challenges I solved
-          in CTF with my team, redpwn, or on other projects.
-        </p>
-      </article>
-    </main>
-
-    <hr />
-    <footer id="footer">
-      <nav>
-        <a href="https://github.com/greeenbeans"
-          ><span class="label">Github</span></a
-        >
-        <a href="https://www.linkedin.com/in/rahil-shah-383b7715a/"
-          ><span class="label">LinkedIn</span></a
-        >
-        <a href="mailto:rahilshah042@gmail.com"
-          ><span class="label">Email</span></a
-        >
-      </nav>
-    </footer>
-  </body>
 </html>
