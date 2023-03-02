@@ -1,68 +1,85 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
-<head>
-  <link rel="stylesheet" href="style.css" />
-  <meta charset="utf-8" />
-  <title>Native Dialogs</title>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  <script src="purify.min.js"></script>
-  <script type="module" src="customdialog.js"></script>
-</head>
-
-<body>
-  <h1>Part 1</h1>
-  <hr />
-  <button type="button" id="alert-button">Alert</button>
-  <button type="button" id="confirm-button">Confirm</button>
-  <button type="button" id="prompt-button">Prompt</button>
-  <button type="button" id="safer-prompt-button">Safer Prompt</button>
-
-  <output id="output-tag">output</output>
-
-  <!-- Script for part 1 -->
-  <script>
-    const alertButton = document.getElementById("alert-button");
-    const confirmButton = document.getElementById("confirm-button");
-    const promptButton = document.getElementById("prompt-button");
-    const safeButton = document.getElementById("safer-prompt-button");
-
-    alertButton.addEventListener("click", () => { window.alert("alert"); });
-    confirmButton.addEventListener("click", updateListener);
-    promptButton.addEventListener("click", promptListener);
-    safeButton.addEventListener("click", safePromptListener);
-
-    function promptListener() {
-      var message = window.prompt("Enter your message", "");
-      if (message != "" && message != null) {
-        document.getElementById("output-tag").innerHTML = `The user entered : ${message}`;
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-S2F7RRCL1D"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
       }
-      else {
-        document.getElementById("output-tag").innerHTML = `User didn’t enter anything`;
+      gtag("js", new Date());
+
+      gtag("config", "G-S2F7RRCL1D");
+    </script>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <title>Native Dialogs</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script src="purify.min.js"></script>
+    <script type="module" src="customdialog.js"></script>
+  </head>
+
+  <body>
+    <h1>Part 1</h1>
+    <hr />
+    <button type="button" id="alert-button">Alert</button>
+    <button type="button" id="confirm-button">Confirm</button>
+    <button type="button" id="prompt-button">Prompt</button>
+    <button type="button" id="safer-prompt-button">Safer Prompt</button>
+
+    <output id="output-tag">output</output>
+
+    <!-- Script for part 1 -->
+    <script>
+      const alertButton = document.getElementById("alert-button");
+      const confirmButton = document.getElementById("confirm-button");
+      const promptButton = document.getElementById("prompt-button");
+      const safeButton = document.getElementById("safer-prompt-button");
+
+      alertButton.addEventListener("click", () => {
+        window.alert("alert");
+      });
+      confirmButton.addEventListener("click", updateListener);
+      promptButton.addEventListener("click", promptListener);
+      safeButton.addEventListener("click", safePromptListener);
+
+      function promptListener() {
+        var message = window.prompt("Enter your message", "");
+        if (message != "" && message != null) {
+          document.getElementById(
+            "output-tag"
+          ).innerHTML = `The user entered : ${message}`;
+        } else {
+          document.getElementById(
+            "output-tag"
+          ).innerHTML = `User didn’t enter anything`;
+        }
       }
 
-    }
-
-    function safePromptListener() {
-      var message = window.prompt("Enter your message", "");
-      if (message != "" && message != null) {
-        document.getElementById("output-tag").innerHTML = DOMPurify.sanitize`The user entered :  ${message}`;
+      function safePromptListener() {
+        var message = window.prompt("Enter your message", "");
+        if (message != "" && message != null) {
+          document.getElementById(
+            "output-tag"
+          ).innerHTML = DOMPurify.sanitize`The user entered :  ${message}`;
+        } else {
+          document.getElementById(
+            "output-tag"
+          ).innerHTML = `User didn’t enter anything`;
+        }
+        console.log(DOMPurify.sanitize(message));
       }
-      else {
-        document.getElementById("output-tag").innerHTML = `User didn’t enter anything`;
+
+      function updateListener() {
+        var response = window.confirm();
+        document.getElementById(
+          "output-tag"
+        ).innerHTML = `The value returned by the confirm method is : ${response}`;
       }
-      console.log(DOMPurify.sanitize(message));
-
-    }
-
-    function updateListener() {
-      var response = window.confirm()
-      document.getElementById("output-tag").innerHTML = `The value returned by the confirm method is : ${response}`;
-
-    }
-  </script>
-
- 
-</body>
-
+    </script>
+  </body>
 </html>

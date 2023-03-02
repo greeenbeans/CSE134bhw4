@@ -3,9 +3,18 @@ export let next = -1;
 export function addthing(date, title, summary,  counter) {
 
     let list = document.getElementById("blogPosts");
+    let item = window.localStorage.getItem(counter);
+
     let element = document.getElementById(`listElement${counter}`);
+
     console.log(window.localStorage.getItem(counter));
-    if (element != null) {
+    if (item != null) {
+        if(element === null){
+            let li = document.createElement("li");
+            li.id = `listElement${counter}`;
+            list.appendChild(li);
+        }
+        element = document.getElementById(`listElement${counter}`);
         element.innerHTML = `Date: ${JSON.parse(window.localStorage.getItem(counter)).d} Title: ${JSON.parse(window.localStorage.getItem(counter)).t} \nSummary: ${JSON.parse(window.localStorage.getItem(counter)).s} <button class="edit" id="edit${counter}">edit</button><button class="delete" id="delete${counter}">delete</button>`;
     }
     else {
