@@ -7,6 +7,7 @@ export function addthing(date, title, summary, counter) {
     let item = window.localStorage.getItem(counter);
     let postList = document.getElementById("posts")
     let element = document.getElementById(`listElement${counter}`);
+    let buttonLoc = document.getElementById(`buttonLoc`);
 
     //check if we have the thing in local storage
     if (item != null) {
@@ -20,13 +21,14 @@ export function addthing(date, title, summary, counter) {
             post.appendChild(postTitle);
             post.appendChild(postSummary);
             post.id = `listElement${counter}`;
-            postList.appendChild(post);
+            buttonLoc.before(post);
+            //            postList.appendChild(post);
         }
         //set html elements
         element = document.getElementById(`listElement${counter}`);
         element.childNodes[0].innerHTML = `Date: ${JSON.parse(window.localStorage.getItem(counter)).d} <br><br>`
         element.childNodes[1].innerHTML = `Title: ${JSON.parse(window.localStorage.getItem(counter)).t}`
-        element.childNodes[2].innerHTML = `Summary: ${JSON.parse(window.localStorage.getItem(counter)).s} <button class="edit" id="edit${counter}">edit</button><button class="delete" id="delete${counter}">delete</button>`;
+        element.childNodes[2].innerHTML = `Summary: ${JSON.parse(window.localStorage.getItem(counter)).s} <button class="edit" id="edit${counter}"><i class="fa fa-pencil"></i></button><button class="delete" id="delete${counter}"><i class="fa fa-trash"></i></button><br><br><br><br>`;
     }
     else {
         //adding a new post, so first add to local storage
@@ -42,12 +44,12 @@ export function addthing(date, title, summary, counter) {
         post.appendChild(postTitle);
         post.appendChild(postSummary);
         post.id = `listElement${counter}`;
-        postList.appendChild(post);
+        buttonLoc.before(post);
 
         element = document.getElementById(`listElement${counter}`);
         element.childNodes[0].innerHTML = `Date: ${JSON.parse(window.localStorage.getItem(counter)).d} <br><br>`
         element.childNodes[1].innerHTML = `Title: ${JSON.parse(window.localStorage.getItem(counter)).t}`
-        element.childNodes[2].innerHTML = `Summary: ${JSON.parse(window.localStorage.getItem(counter)).s} <button class="edit" id="edit${counter}">edit</button><button class="delete" id="delete${counter}">delete</button>`;
+        element.childNodes[2].innerHTML = `Summary: ${JSON.parse(window.localStorage.getItem(counter)).s} <button class="edit" id="edit${counter}"><i class="fa fa-pencil"></i></button><button class="delete" id="delete${counter}"><i class="fa fa-trash"></i></button><br><br><br><br>`;
 
 
     }
@@ -72,7 +74,7 @@ export function addthing(date, title, summary, counter) {
         let p = document.getElementById("posts");
         const outputBox = document.querySelector('#output');;
         console.log(p.childNodes);
-        if (p.childNodes.length === 1) {
+        if (p.childNodes.length === 5) {
             outputBox.innerHTML = "No blog posts at the moment";
         }
     });

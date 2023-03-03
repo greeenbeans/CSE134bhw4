@@ -1,0 +1,146 @@
+body {
+    display: flex;
+}
+
+h2 {
+    text-align: center;
+}
+
+#posts {
+    padding: 50px;
+}
+
+date {
+    font-family: monospace;
+    font-size: 13px;
+    color: #8d7edc;
+}
+
+postTitle {
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica;
+    font-weight: bold;
+}
+
+.card {
+    padding-top: 20px;
+}
+
+.card .author_name {
+    display: block;
+    color: #f36170;
+    font-size: 1.75em
+}
+
+.card .author_bio {
+    display: block;
+}
+
+@media only screen and (max-width: 992px) {
+    body {
+        display: block
+    }
+
+    .card {
+        border-bottom: rgba(0, 0, 0, 0.1) 0.7mm solid;
+        padding-bottom: 30px
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .card {
+        border-right: rgba(0, 0, 0, 0.1) 0.7mm solid;
+        padding-right: 10px
+    }
+}
+
+a:link {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.nav-list .nav-item {
+    display: inline-block;
+    *display: inline;
+    zoom: 1
+}
+
+.nav-list .nav-item:after {
+    content: "/"
+}
+
+.nav-list .nav-item:last-child:after {
+    content: ""
+}
+
+.nav-list .nav-item a {
+    margin-top: 1em;
+    text-transform: lowercase;
+    font-size: 85%;
+    color: #8d7edc
+}
+
+.nav-list .nav-item a:hover,
+.nav-list .nav-item a:focus {
+    color: #bfb6eb
+}
+
+.edit {
+
+    background-color: grey;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.edit:hover {
+    background-color: lightgray;
+}
+
+.delete {
+    background-color: grey;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.delete:hover {
+    background-color: lightgray;
+}
+
+#showDialog{
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 12%;
+}
+#showDialog:hover{
+    background-color: lightgray;
+    color: #f36170;
+    border: none;
+    border-radius: 12%;
+}
