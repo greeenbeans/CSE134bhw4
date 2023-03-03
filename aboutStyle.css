@@ -1,0 +1,51 @@
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+img{
+    width: 40%;
+    height: auto;
+}
+
+column1{
+    flex: 0 0 33%;
+    max-width: 33%;
+}
+column2{
+    flex: 0 0 67%;
+    max-width: 67%;
+}
+
+
+.portrait {
+    border-style: none;
+    isolation: isolate;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    box-shadow: 4px 4px 40px 4px rgb(0 0 0 / 20%);
+    transition: 0.5s;
+    border-radius: 20%;
+}
+
+.aboutBox{
+    margin-right: 4vw;
+    width: auto;
+}
+button {
+    border-radius: 7px;
+    border: 0;
+    background: #191414;
+    color: #fff;
+    padding: 10px;
+    margin: 0 0 3px 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkgreen;
+}

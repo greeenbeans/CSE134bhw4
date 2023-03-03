@@ -70,3 +70,6 @@ export function updateThing(date, title, summary,  num) {
     addthing("", "", "",  num);
    
 }
+export function isNumeric(s) {
+    return !isNaN(s - parseFloat(s));
+}
